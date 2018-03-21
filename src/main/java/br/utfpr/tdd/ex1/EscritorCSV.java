@@ -17,9 +17,6 @@ import org.apache.commons.csv.CSVPrinter;
 class EscritorCSV {
     CSVPrinter csvPrinter;
     
-    public EscritorCSV() {
-    }
-    
     void escrever(String ra, String nome, double notaFinal, String situacao) {
         try {
             Locale locale  = new Locale("en", "UK");
