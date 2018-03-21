@@ -1,6 +1,6 @@
 package br.utfpr.tdd.ex1;
 
-import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
+import java.util.logging.Logger;
 import java.io.BufferedWriter;
 import java.math.RoundingMode;
 import java.nio.file.Files;
@@ -17,6 +17,9 @@ import org.apache.commons.csv.CSVPrinter;
  * @author andreendo
  */
 class EscritorCSV {
+    
+    private static final Logger LOGGER = Logger.getLogger( EscritorCSV.class.getName());
+    
     CSVPrinter csvPrinter;
     
     public EscritorCSV() {
@@ -33,7 +36,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            LOGGER.log(Level.SEVERE, e.getMessage());
+            LOGGER.log( Level.SEVERE, e.toString(), e);
         }
     }
 
@@ -46,7 +49,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            LOGGER.log(Level.SEVERE, e.getMessage());
+            LOGGER.log( Level.SEVERE, e.toString(), e);
         }
     }
     
