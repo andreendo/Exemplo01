@@ -41,7 +41,6 @@ class EscritorCSV {
             csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
                     .withHeader("RA", "Nome", "NF", "Situacao"));
             csvPrinter.flush();
-            writer.close();
         } catch (Exception e) {
             System.out.println("Não foi possível ler o arquivo");
         }
