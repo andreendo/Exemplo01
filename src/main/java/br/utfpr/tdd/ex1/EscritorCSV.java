@@ -17,7 +17,7 @@ import org.apache.commons.csv.CSVPrinter;
  *
  * @author andreendo
  */
-public class EscritorCSV {
+class EscritorCSV {
     private static final Logger logger = Logger.getLogger(EscritorCSV.class);
     CSVPrinter csvPrinter;
     
