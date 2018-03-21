@@ -30,7 +30,7 @@ class LeitorCSV {
             for (CSVRecord rec : csvRecords) {
                 Aluno a = new Aluno(rec.get("RA"), rec.get("Nome"));
                 a.setFaltas( Integer.parseInt(rec.get("NumeroDeFaltas")) );
-                String naps[] = rec.get("NotasAtividadesPraticasSeparadas").split(";");
+                String[] naps = rec.get("NotasAtividadesPraticasSeparadas").split(";");
                 for(String nap : naps) {
                     a.addNotaAtividadePratica(Double.parseDouble(nap));
                 }
