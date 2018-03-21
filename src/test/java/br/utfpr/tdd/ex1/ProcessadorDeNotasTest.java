@@ -26,7 +26,7 @@ public class ProcessadorDeNotasTest {
     }
     
     @Test
-    public void testProcessar() {
+    public void testProcessar() throws IOException {
         LeitorCSV leitorMock = mock(LeitorCSV.class);
         when(leitorMock.getAlunosDe("./res/algumArq.csv"))
                 .thenReturn( getAlunos() );
@@ -49,7 +49,7 @@ public class ProcessadorDeNotasTest {
     }
 
     @Test
-    public void testProcessarErro() {
+    public void testProcessarErro() throws IOException {
         LeitorCSV leitorMock = mock(LeitorCSV.class);
         when(leitorMock.getAlunosDe("./res/algumArq.csv"))
                 .thenReturn( getErro() );

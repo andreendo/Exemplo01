@@ -48,7 +48,6 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
             LOGGER.log(Level.SEVERE, e.toString());
         }finally{
             csvPrinter.close();
