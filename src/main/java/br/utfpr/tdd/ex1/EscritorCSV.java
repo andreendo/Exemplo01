@@ -28,7 +28,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("Ocorreu um erro no método escrever");
         }
     }
 
@@ -41,7 +41,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
+            System.out.println("Ocorreu um erro no método setArquivoSaida");
         }
     }
     
