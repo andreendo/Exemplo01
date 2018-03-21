@@ -15,34 +15,32 @@ import org.apache.commons.csv.CSVPrinter;
  * @author andreendo
  */
 class EscritorCSV {
+
     CSVPrinter csvPrinter;
-    
+
     void escrever(String ra, String nome, double notaFinal, String situacao) {
         try {
-            Locale locale  = new Locale("en", "UK");
-            DecimalFormat df = (DecimalFormat)
-                                NumberFormat.getNumberInstance(locale);
+            Locale locale = new Locale("en", "UK");
+            DecimalFormat df = (DecimalFormat) NumberFormat.getNumberInstance(locale);
             df.applyPattern(".#");
             df.setRoundingMode(RoundingMode.DOWN);
             csvPrinter.printRecord(ra, nome, df.format(notaFinal), situacao);
-            csvPrinter.flush();            
-        }
-        catch(Exception e) {
-            e.printStackTrace();
+            csvPrinter.flush();
+        } catch (Exception e) {
+            System.out.println("Não foi possível escrever no arquivo");
         }
     }
 
     void setArquivoSaida(String filePath) {
+
         try {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
-
             csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
-                .withHeader("RA", "Nome", "NF", "Situacao"));
-            csvPrinter.flush();            
-        }
-        catch(Exception e) {
-            e.printStackTrace();
+                    .withHeader("RA", "Nome", "NF", "Situacao"));
+            csvPrinter.flush();
+        } catch (Exception e) {
+            System.out.println("Não foi possível ler o arquivo");
         }
     }
-    
+
 }
