@@ -1,5 +1,7 @@
 package br.utfpr.tdd.ex1;
 
+import com.sun.istack.internal.logging.Logger;
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.io.BufferedWriter;
 import java.math.RoundingMode;
 import java.nio.file.Files;
@@ -7,6 +9,7 @@ import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.logging.Level;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -14,10 +17,12 @@ import org.apache.commons.csv.CSVPrinter;
  *
  * @author andreendo
  */
-class EscritorCSV {
+public class EscritorCSV {
+    private static final Logger logger = Logger.getLogger(EscritorCSV.class);
     CSVPrinter csvPrinter;
     
     public EscritorCSV() {
+        
     }
     
     void escrever(String ra, String nome, double notaFinal, String situacao) {
@@ -31,7 +36,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING, e.getMessage());
         }
     }
 
@@ -44,7 +49,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
+            logger.log(Level.WARNING, e.getMessage());
         }
     }
     
