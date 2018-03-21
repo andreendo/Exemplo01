@@ -1,12 +1,15 @@
 package br.utfpr.tdd.ex1;
 
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.math.RoundingMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.logging.Level;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -32,10 +35,11 @@ class EscritorCSV {
         }
         catch(Exception e) {
             e.printStackTrace();
+            LOGGER.log(Level.SEVERE, e.toString());
         }
     }
 
-    void setArquivoSaida(String filePath) {
+    void setArquivoSaida(String filePath) throws IOException {
         try {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
 
@@ -45,6 +49,9 @@ class EscritorCSV {
         }
         catch(Exception e) {
             e.printStackTrace();
+            LOGGER.log(Level.SEVERE, e.toString());
+        }finally{
+            csvPrinter.close();
         }
     }
     
