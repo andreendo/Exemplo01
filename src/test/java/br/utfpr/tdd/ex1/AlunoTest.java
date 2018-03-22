@@ -37,6 +37,42 @@ public class AlunoTest {
     }
     
     @Test
+    public void testComAlunoNotaMaximaSeisRAA(){
+        Aluno aluno = new Aluno("RA", "Joao Da Silva");
+        
+        aluno.addNotaAtividadePratica(5.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(1.0);
+        double mediaRAA = (5.0 + 10.0  + 10.0 + 10.0 + 1.0)/5.0;
+        
+        aluno.setNotaProjeto(5.0);
+        aluno.setNotaRAA(6.0);
+        
+        assertEquals((5.0 + 6.0 + mediaRAA) / 3.0, aluno.getNF(), 0.01);
+        assertTrue(aluno.getNotaRAA() == 6.0);
+        
+    }
+    
+    @Test
+    public void testComAlunoNotaultrapassadaSeisRAA(){
+        Aluno aluno = new Aluno("RA", "Joao Da Silva");
+        
+        aluno.addNotaAtividadePratica(5.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(1.0);
+        double mediaRAA = (5.0 + 10.0 + 1.0)/5.0;
+        
+        aluno.setNotaProjeto(5.0);
+        aluno.setNotaRAA(8.0);
+        
+        assertEquals((5.0 + 8.0 + mediaRAA) / 3.0, aluno.getNF(), 0.01);
+        assertFalse(aluno.getNotaRAA() == 8.0);
+        
+    }
+            
+    @Test
     public void testNotaFinalIntegrandoComAtividadesPraticas() {
         Aluno aluno = new Aluno("RA", "Joao Da Silva");
         

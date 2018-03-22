@@ -50,7 +50,7 @@ public class Aluno {
     void setNotaRAA(double nota) {
         notaRAA = nota;
     }
-
+    
     void setFaltas(int faltas) {
         this.faltas = faltas;
     }

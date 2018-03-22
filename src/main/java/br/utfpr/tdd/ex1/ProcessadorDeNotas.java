@@ -1,5 +1,6 @@
 package br.utfpr.tdd.ex1;
 
+import java.io.IOException;
 import java.util.List;
 
 /**
@@ -30,7 +31,7 @@ public class ProcessadorDeNotas {
         this.avaliador = avaliador;
     }
     
-    public void processar(String arqCsvEntrada, String arqCsvSaida) {
+    public void processar(String arqCsvEntrada, String arqCsvSaida) throws IOException {
         escritor.setArquivoSaida(arqCsvSaida);
         
         List<Aluno> alunos = leitor.getAlunosDe(arqCsvEntrada);
