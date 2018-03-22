@@ -34,23 +34,21 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
-            LOGGER.log(Level.SEVERE, e.toString());
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
-    void setArquivoSaida(String filePath) throws IOException {
+    void setArquivoSaida(String filePath) {
         try {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
 
             csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
                 .withHeader("RA", "Nome", "NF", "Situacao"));
-            csvPrinter.flush();            
+            csvPrinter.flush();   
+           // csvPrinter.close();         
         }
         catch(Exception e) {
             LOGGER.log(Level.SEVERE, e.toString());
-        }finally{
-            csvPrinter.close();
         }
     }
     
