@@ -44,7 +44,8 @@ public class Aluno {
     double getNF() {
         if(notaRAA < 0)
             return (notaProjeto + getNAP()) / 2.0;
-        
+        if((notaProjeto + getNAP() + notaRAA) / 3.0 > 6.0)
+            return 6.0;
         return (notaProjeto + getNAP() + notaRAA) / 3.0;
     }
 
