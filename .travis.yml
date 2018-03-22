@@ -5,7 +5,4 @@ addons:
     organization: "fabriciojso"
 
  script:
-   - mvn sonar:sonar \
-  -Dsonar.organization=fabriciojso-github \
-  -Dsonar.host.url=https://sonarcloud.io \
-  -Dsonar.login=403c665be35fa2032b3372af2c5a407fc4c395ef
+   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
