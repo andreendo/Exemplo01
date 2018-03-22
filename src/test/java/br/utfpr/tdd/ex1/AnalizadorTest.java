@@ -17,17 +17,17 @@ public class AnalizadorTest {
     
     @Test
     public void testEncontraMedia(){
-        assertEquals(5.82, this.getAnalizador().getMedia(), 0.0001);
+        assertEquals(5.827, this.getAnalizador().getMedia(), 0.001);
     }
     
     @Test
     public void testEncontraMenorValor(){
-        assertEquals(4.73, this.getAnalizador().getMenorValor(), 0.0001);
+        assertEquals(4.733, this.getAnalizador().getMenorValor(), 0.001);
     }
     
     @Test
     public void testEncontraMaiorValor(){
-        assertEquals(6.75, this.getAnalizador().getMaiorValor(), 0.0001);
+        assertEquals(6.750, this.getAnalizador().getMaiorValor(), 0.001);
     }
     
     private Analizador getAnalizador(){
