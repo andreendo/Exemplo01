@@ -11,10 +11,6 @@ import org.junit.Rule;
 import org.junit.Test;
 import org.junit.rules.TemporaryFolder;
 
-/**
- *
- * @author andreendo
- */
 public class ProcessadorDeNotasIntegrationTest {
     
     @Rule
