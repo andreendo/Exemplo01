@@ -40,6 +40,7 @@ public class ProcessadorDeNotas {
         else {
             for(Aluno a : alunos) {
                 String statusFinal = avaliador.getStatusFinal(a);
+               
                 escritor.escrever(a.getRA(), a.getNome(), a.getNF(), statusFinal);
             }
         }            
