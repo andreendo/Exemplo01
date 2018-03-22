@@ -67,5 +67,24 @@ public class AlunoTest {
         aluno.setNotaRAA(6.0);
         
         assertEquals((5.0 + 6.0 + mediaRAA) / 3.0, aluno.getNF(), 0.01);
-    }        
+    }    
+
+    ////////////////////////////////////////////Meus Testes
+    @Test
+    public void testNotaFinalComRAASalvando(){
+        Aluno aluno = new Aluno("RA", "Luiz Guilherme");
+        
+        //Media 5.4
+        aluno.addNotaAtividadePratica(5.0);
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(5.0);
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(5.0);
+        
+        aluno.setNotaProjeto(6.0);
+        aluno.setNotaRAA(10.0);
+        
+        assertEquals(6.0, aluno.getNF(), 0.01);
+        
+    }
 }
