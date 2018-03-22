@@ -15,61 +15,61 @@ import static org.mockito.Mockito.*;
  * @author andreendo
  */
 public class ProcessadorDeNotasTest {
-    
+
     @Rule
     public TemporaryFolder folder = new TemporaryFolder();
     File tempFolder;
-    
+
     @Before
     public void before() throws IOException {
         tempFolder = folder.newFolder();
     }
-    
+
     @Test
     public void testProcessar() {
         LeitorCSV leitorMock = mock(LeitorCSV.class);
         when(leitorMock.getAlunosDe("./res/algumArq.csv"))
-                .thenReturn( getAlunos() );
-        
+                .thenReturn(getAlunos());
+
         EscritorCSV escritorMock = mock(EscritorCSV.class);
-        
+
         Avaliador avaliador = new Avaliador();
         avaliador.setLimiteFaltas(15);
-        
+
         ProcessadorDeNotas p = new ProcessadorDeNotas();
         p.setLeitor(leitorMock);
         p.setEscritor(escritorMock);
         p.setAvaliador(avaliador);
-        
-        p.processar("./res/algumArq.csv", tempFolder.getAbsolutePath() + "/algumArqSaida.csv");        
-        
+
+        p.processar("./res/algumArq.csv", tempFolder.getAbsolutePath() + "/algumArqSaida.csv");
+
         verify(escritorMock).setArquivoSaida(tempFolder.getAbsolutePath() + "/algumArqSaida.csv");
-        verify(escritorMock).escrever("1234", "aaa bbb", (6.0 + (10.0 + 5.0)/2.0)/2, "aprovado");
-        verify(escritorMock).escrever("12345", "aaavv bbbvv", (1.0 + (10.0 + 5.0)/2.0 + 5.7)/3, "reprovado por nota e falta");
+        verify(escritorMock).escrever("1234", "aaa bbb", (6.0 + (10.0 + 5.0) / 2.0) / 2, "aprovado");
+        verify(escritorMock).escrever("12345", "aaavv bbbvv", (1.0 + (10.0 + 5.0) / 2.0 + 5.7) / 3, "reprovado por nota e falta");
     }
 
     @Test
     public void testProcessarErro() {
         LeitorCSV leitorMock = mock(LeitorCSV.class);
         when(leitorMock.getAlunosDe("./res/algumArq.csv"))
-                .thenReturn( getErro() );
-        
+                .thenReturn(getErro());
+
         EscritorCSV escritorMock = mock(EscritorCSV.class);
-        
+
         Avaliador avaliador = new Avaliador();
         avaliador.setLimiteFaltas(15);
-        
+
         ProcessadorDeNotas p = new ProcessadorDeNotas();
         p.setLeitor(leitorMock);
         p.setEscritor(escritorMock);
         p.setAvaliador(avaliador);
-        
-        p.processar("./res/algumArq.csv", tempFolder.getAbsolutePath() + "/algumArqSaida.csv");        
-        
+
+        p.processar("./res/algumArq.csv", tempFolder.getAbsolutePath() + "/algumArqSaida.csv");
+
         verify(escritorMock).setArquivoSaida(tempFolder.getAbsolutePath() + "/algumArqSaida.csv");
         verify(escritorMock).escrever("ERROR READING FILE: aaaaa", "ERROR READING FILE: aaaaa", 0.0, "ERROR READING FILE: aaaaa");
-    }    
-    
+    }
+
     private List<Aluno> getAlunos() {
         List<Aluno> alunos = new ArrayList<>();
         Aluno a1 = new Aluno("1234", "aaa bbb");
@@ -86,16 +86,16 @@ public class ProcessadorDeNotasTest {
         a2.addNotaAtividadePratica(5.0);
         a2.setNotaRAA(5.7);
         alunos.add(a2);
-        
+
         return alunos;
     }
-    
+
     private List<Aluno> getErro() {
         List<Aluno> alunos = new ArrayList<>();
         Aluno a1 = new Aluno("ERROR READING FILE: aaaaa", "ERROR READING FILE: aaaaa");
         alunos.add(a1);
-        
+
         return alunos;
     }
-    
+
 }
