@@ -44,8 +44,13 @@ public class Aluno {
         if(notaRAA < 0)
             return (notaProjeto + getNAP()) / 2.0;
         
+        // se a nota RAA for maior que 6.0 sera atribuda a nota 6.0 pois não pode ser maior que isso.
+        if(notaRAA > 6.0)
+            notaRAA = 6.0;
         return (notaProjeto + getNAP() + notaRAA) / 3.0;
+           
     }
+    
 
     void setNotaRAA(double nota) {
         notaRAA = nota;
