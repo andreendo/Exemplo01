@@ -84,7 +84,7 @@ public class AlunoTest {
         aluno.setNotaProjeto(5.0);
         aluno.setNotaRAA(10.0);
         
-        assertEquals((5.0 + 6.0 + mediaRAA) / 3.0, aluno.getNF(), 0.01);
+        assertEquals(6.0, aluno.getNF(), 0.01);
     }
     
 }
