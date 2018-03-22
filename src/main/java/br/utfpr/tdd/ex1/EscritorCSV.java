@@ -1,12 +1,17 @@
 package br.utfpr.tdd.ex1;
 
+import com.sun.istack.internal.logging.Logger;
+import static com.sun.xml.internal.ws.spi.db.BindingContextFactory.LOGGER;
 import java.io.BufferedWriter;
+import java.io.IOException;
 import java.math.RoundingMode;
 import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
+import static java.util.Arrays.stream;
 import java.util.Locale;
+import java.util.logging.Level;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -15,37 +20,42 @@ import org.apache.commons.csv.CSVPrinter;
  * @author andreendo
  */
 class EscritorCSV {
+
     CSVPrinter csvPrinter;
-    
+
     public EscritorCSV() {
     }
-    
-    void escrever(String ra, String nome, double notaFinal, String situacao) {
+
+    void escrever(String ra, String nome, double notaFinal, String situacao) throws IOException {
         try {
-            Locale locale  = new Locale("en", "UK");
-            DecimalFormat df = (DecimalFormat)
-                                NumberFormat.getNumberInstance(locale);
+            Locale locale = new Locale("en", "UK");
+            DecimalFormat df = (DecimalFormat) NumberFormat.getNumberInstance(locale);
             df.applyPattern(".#");
             df.setRoundingMode(RoundingMode.DOWN);
             csvPrinter.printRecord(ra, nome, df.format(notaFinal), situacao);
-            csvPrinter.flush();            
+            csvPrinter.flush();
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "teste");
         }
-        catch(Exception e) {
-            e.printStackTrace();
+        finally {
+
+            csvPrinter.close();
         }
     }
 
-    void setArquivoSaida(String filePath) {
+    void setArquivoSaida(String filePath) throws IOException {
         try {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
 
             csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
-                .withHeader("RA", "Nome", "NF", "Situacao"));
-            csvPrinter.flush();            
-        }
-        catch(Exception e) {
-            e.printStackTrace();
+                    .withHeader("RA", "Nome", "NF", "Situacao"));
+            csvPrinter.flush();
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "teste");
+        } finally {
+
+            csvPrinter.close();
         }
     }
-    
+
 }

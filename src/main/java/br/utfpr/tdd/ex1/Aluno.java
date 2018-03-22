@@ -10,7 +10,8 @@ import java.util.List;
 public class Aluno {
     
     private List<Double> notasAtividadesPraticas = new ArrayList<>();
-    private double notaProjeto, notaRAA = -1;
+    private double notaProjeto;
+    private double notaRAA = -1;
     private int faltas;
     private String ra, nome;
     
