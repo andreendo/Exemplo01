@@ -52,5 +52,20 @@ public class AvaliadorTest {
         when(alunoSpy.getNF()).thenReturn(5.5);
         
         assertEquals("reprovado por nota e falta", avaliador.getStatusFinal(alunoSpy));
-    }    
+    } 
+    
+    @Test
+    public void testAlunoComLimiteDeNotaQuandoFeitoRAA(){
+        Aluno aluno = new Aluno("123", "Fabricio");
+        aluno.setFaltas(10);
+        aluno.setNotaProjeto(3.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(5.0);
+        aluno.setNotaRAA(10);
+        
+        Avaliador avaliador = new Avaliador();
+        avaliador.setLimiteFaltas(20);
+        
+        assertEquals(6.0, aluno.getNF(),0.0001);
+    }
 }
