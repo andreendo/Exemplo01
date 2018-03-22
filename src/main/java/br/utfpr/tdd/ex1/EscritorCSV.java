@@ -7,6 +7,8 @@ import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -16,6 +18,7 @@ import org.apache.commons.csv.CSVPrinter;
  */
 class EscritorCSV {
     CSVPrinter csvPrinter;
+    private final static Logger LOGGER = Logger.getLogger(EscritorCSV.class.getName());
     
     void escrever(String ra, String nome, double notaFinal, String situacao) {
         try {
@@ -28,7 +31,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            java.util.logging.Logger.getLogger("Teste").info(e.toString());
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
         }
     }
 
@@ -41,7 +44,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            java.util.logging.Logger.getLogger("Teste").info(e.toString());
+            LOGGER.log(Level.SEVERE, e.getMessage(), e);
         }
     }
     
