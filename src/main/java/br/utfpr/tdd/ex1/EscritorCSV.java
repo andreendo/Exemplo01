@@ -1,5 +1,6 @@
 package br.utfpr.tdd.ex1;
 
+import java.util.logging.Logger;
 import java.io.BufferedWriter;
 import java.math.RoundingMode;
 import java.nio.file.Files;
@@ -7,6 +8,7 @@ import java.nio.file.Paths;
 import java.text.DecimalFormat;
 import java.text.NumberFormat;
 import java.util.Locale;
+import java.util.logging.Level;
 import org.apache.commons.csv.CSVFormat;
 import org.apache.commons.csv.CSVPrinter;
 
@@ -15,6 +17,9 @@ import org.apache.commons.csv.CSVPrinter;
  * @author andreendo
  */
 class EscritorCSV {
+    
+    private static final Logger LOGGER = Logger.getLogger( EscritorCSV.class.getName());
+    
     CSVPrinter csvPrinter;
     
     void escrever(String ra, String nome, double notaFinal, String situacao) {
@@ -28,7 +33,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
+            LOGGER.log( Level.SEVERE, e.toString(), e);
         }
     }
 
@@ -41,7 +46,7 @@ class EscritorCSV {
             csvPrinter.flush();            
         }
         catch(Exception e) {
-            e.printStackTrace();
+            LOGGER.log( Level.SEVERE, e.toString(), e);
         }
     }
     
