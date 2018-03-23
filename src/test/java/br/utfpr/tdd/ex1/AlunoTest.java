@@ -67,5 +67,20 @@ public class AlunoTest {
         aluno.setNotaRAA(6.0);
         
         assertEquals((5.0 + 6.0 + mediaRAA) / 3.0, aluno.getNF(), 0.01);
-    }        
+    }
+    
+    @Test
+    public void testAlunoComLimiteDeNotaQuandoFeitoRAA(){
+        Aluno aluno = new Aluno("123", "Fabricio");
+        aluno.setFaltas(10);
+        aluno.setNotaProjeto(3.0);
+        aluno.addNotaAtividadePratica(10.0);
+        aluno.addNotaAtividadePratica(5.0);
+        aluno.setNotaRAA(10);
+        
+        Avaliador avaliador = new Avaliador();
+        avaliador.setLimiteFaltas(20);
+        
+        assertEquals(6.0, aluno.getNF(),0.0001);
+    }
 }

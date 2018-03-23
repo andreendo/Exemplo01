@@ -52,5 +52,6 @@ public class AvaliadorTest {
         when(alunoSpy.getNF()).thenReturn(5.5);
         
         assertEquals("reprovado por nota e falta", avaliador.getStatusFinal(alunoSpy));
-    }    
+    } 
+    
 }
