@@ -1,6 +1,5 @@
 package br.utfpr.tdd.ex1;
 
-import 
 import org.junit.Test;
 import static org.junit.Assert.*;
 import static org.mockito.Mockito.*;
@@ -87,5 +86,22 @@ public class AlunoTest {
         
         assertEquals(6.0 , aluno.getNF(), 0.01);
     }
-    
+    @Test
+     public void testArredondarNotaFinal() {
+        Aluno aluno = new Aluno("RA", "Joao Da Silva");
+        
+        //6.3 media
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(6.0);
+        aluno.addNotaAtividadePratica(6.0);
+        double mediaRAA = (6.0 + 6.0 + 6.0 + 6.0 + 6.0)/6.0;
+        
+        aluno.setNotaProjeto(4.0);
+        aluno.setNotaRAA(7.8);
+        
+        assertEquals(6.0 , aluno.getNF(), 0.01);
+    }
 }
