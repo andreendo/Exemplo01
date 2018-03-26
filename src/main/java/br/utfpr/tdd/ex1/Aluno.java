@@ -41,20 +41,24 @@ public class Aluno {
     void setNotaProjeto(double nota) {
         notaProjeto = nota;
     }
-
+    
+    double notaFinal;
     double getNF() {
         if (notaRAA < 0) {
-            return (notaProjeto + getNAP()) / 2.0;
+            notaFinal = (notaProjeto + getNAP()) / 2.0;
+            if (notaFinal > 5.9 && notaFinal < 6) {
+                return 6.0;
+            }
+            return notaFinal;
         } else {
-            double notaFinal;
+            
             notaFinal = (notaProjeto + getNAP() + notaRAA) / 3.0;
-            if (notaFinal > 6) {
+            if (notaFinal >= 5.9) {
                 return 6;
             } else {
                 return notaFinal;
             }
         }
-
     }
 
     void setNotaRAA(double nota) {
