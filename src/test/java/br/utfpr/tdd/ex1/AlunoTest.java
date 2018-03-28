@@ -89,31 +89,27 @@ public class AlunoTest {
 
     @Test
     public void testComNota596SemRAA() {
-        Aluno aluno = new Aluno("RA", "Marcos");
-        //4.6 media
+        Aluno aluno = new Aluno("RA", "Sandro");
         aluno.addNotaAtividadePratica(5.0);
         aluno.addNotaAtividadePratica(8.0);
         aluno.addNotaAtividadePratica(7.0);
         aluno.addNotaAtividadePratica(0.0);
         aluno.addNotaAtividadePratica(1.0);
-        double mediaRAA = (5.0 + 10.0 + 7.0 + 0.0 + 1.0) / 5.0;
-        aluno.setNotaProjeto(7.05);
-
+        double mediaRAA = (5.0 + 8.0 + 7.0 + 0.0 + 1.0) / 5.0;
+        aluno.setNotaProjeto(7.8);
         assertEquals(6.0, aluno.getNF(), 0.01);
     }
     @Test
     public void testComNota596ComRAA() {
         Aluno aluno = new Aluno("RA", "Marcos");
-        //4.6 media
         aluno.addNotaAtividadePratica(5.0);
         aluno.addNotaAtividadePratica(8.0);
         aluno.addNotaAtividadePratica(7.0);
         aluno.addNotaAtividadePratica(0.0);
         aluno.addNotaAtividadePratica(1.0);
-        double mediaRAA = (5.0 + 10.0 + 7.0 + 0.0 + 1.0) / 5.0;
+        double mediaRAA = (5.0 + 8.0 + 7.0 + 0.0 + 1.0) / 5.0;
         aluno.setNotaProjeto(5.0);
-        aluno.setNotaRAA(7.8);
-
+        aluno.setNotaRAA(8.7);
         assertEquals(6.0, aluno.getNF(), 0.01);
     }
 
