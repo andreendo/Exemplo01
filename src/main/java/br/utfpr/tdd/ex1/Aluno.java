@@ -44,8 +44,13 @@ public class Aluno {
     double getNF() {
         if(notaRAA < 0)
             return (notaProjeto + getNAP()) / 2.0;
-        
-        return (notaProjeto + getNAP() + notaRAA) / 3.0;
+        else {
+            double nota = (notaProjeto + getNAP() + notaRAA) / 3.0;
+            if(nota <= 6.0)
+                return nota;
+            else
+                return 6.0;
+        }
     }
 
     void setNotaRAA(double nota) {
