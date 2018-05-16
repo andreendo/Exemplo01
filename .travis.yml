@@ -2,7 +2,9 @@ language: java
 
 addons:
   sonarcloud:
-    organization: "andreendo-github"
+    organization: "edmilsonverona-github"
+  token:
+      secure: 25f9088ca9b1cc50c57654b3691c0200e373675b
 
 script:
   - mvn clean org.jacoco:jacoco-maven-plugin:prepare-agent install sonar:sonar
