@@ -73,7 +73,7 @@ public class AlunoTest {
     public void testNotaFinalComRAANoMaximoSeis() {
         Aluno aluno = new Aluno("RA", "Joao Da Silva");
         
-        aluno.addNotaAtividadePratica(5.0);
+        aluno.addNotaAtividadePratica(3.0);
         aluno.setNotaProjeto(5.0);
         aluno.setNotaRAA(10.0);
         
