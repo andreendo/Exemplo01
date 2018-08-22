@@ -77,6 +77,10 @@ public class AlunoTest {
         aluno.setNotaProjeto(5.0);
         aluno.setNotaRAA(10.0);
         
+        // 5 ATIVIDADE PRÁTICA
+        // 5 ATIVIDADE PRÁTICA
+        // 10 RAA 
+        // 20 / 3 = 6.6, corrigido para no máximo 6
         assertEquals(6.0, aluno.getNF(), 0.01);
     }    
 }
