@@ -9,7 +9,7 @@ import static org.mockito.Mockito.*;
  * @author andreendo
  */
 public class AlunoTest {
-    
+    //testes consertados
     @Test
     public void testNotaAtividadesTresNotas() {
         Aluno aluno = new Aluno("RA", "Joao Da Silva");
