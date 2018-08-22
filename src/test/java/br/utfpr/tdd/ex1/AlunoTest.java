@@ -16,7 +16,7 @@ public class AlunoTest {
         aluno.addNotaAtividadePratica(10.0);
         aluno.addNotaAtividadePratica(5.0);
         aluno.addNotaAtividadePratica(10.0);
-        assertEquals((10.0+5.0+10.0)/3.0, aluno.getNAP(), 0.01);
+        assertEquals(8.33, aluno.getNAP(), 0.01);
     }
     
     @Test
