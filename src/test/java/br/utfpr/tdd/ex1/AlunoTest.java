@@ -9,6 +9,7 @@ import static org.mockito.Mockito.*;
  * @author andreendo
  */
 public class AlunoTest {
+    //funcionando
     
     @Test
     public void testNotaAtividadesTresNotas() {
