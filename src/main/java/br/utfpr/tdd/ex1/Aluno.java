@@ -15,6 +15,7 @@ public class Aluno {
     private int faltas;
     private String ra; 
     private String nome;
+    double notafinal = 0.0;
     
     public Aluno(String ra, String nome) {
         this.ra = ra;
@@ -42,10 +43,16 @@ public class Aluno {
     }
 
     double getNF() {
-        if(notaRAA < 0)
-            return (notaProjeto + getNAP()) / 2.0;
-        
-        return (notaProjeto + getNAP() + notaRAA) / 3.0;
+        notafinal = (notaProjeto + getNAP() + notaRAA) / 3.0;
+
+        if(notaRAA < 0) {
+            notafinal = (notaProjeto + getNAP()) / 2.0;
+        return notafinal;
+        }
+        if (((notaProjeto + getNAP() + notaRAA) / 3.0) > 6.0 ) {
+            notafinal = 6.0;
+        }
+        return notafinal;
     }
 
     void setNotaRAA(double nota) {
