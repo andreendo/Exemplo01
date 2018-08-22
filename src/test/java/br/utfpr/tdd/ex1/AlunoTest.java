@@ -33,7 +33,7 @@ public class AlunoTest {
         when(alunoSpy.getNAP()).thenReturn(7.0);
         
         alunoSpy.setNotaProjeto(7.0);
-        assertEquals((7.0 + 7.0) / 2.0, alunoSpy.getNF(), 0.01);
+        assertEquals(7.0, alunoSpy.getNF(), 0.01);
     }
     
     @Test
