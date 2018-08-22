@@ -8,14 +8,14 @@ import java.util.List;
  * @author andreendo
  */
 public class Aluno {
-    
+
     private List<Double> notasAtividadesPraticas = new ArrayList<>();
     private double notaProjeto;
     private double notaRAA = -1;
     private int faltas;
-    private String ra; 
+    private String ra;
     private String nome;
-    
+
     public Aluno(String ra, String nome) {
         this.ra = ra;
         this.nome = nome;
@@ -26,14 +26,15 @@ public class Aluno {
     }
 
     public double getNAP() {
-        if(notasAtividadesPraticas.isEmpty())
+        if (notasAtividadesPraticas.isEmpty()) {
             return 0.0;
-        
-        double nap = 0; 
+        }
+
+        double nap = 0;
         for (Double nota : notasAtividadesPraticas) {
             nap += nota;
         }
-        
+
         return nap / notasAtividadesPraticas.size();
     }
 
@@ -42,10 +43,14 @@ public class Aluno {
     }
 
     double getNF() {
-        if(notaRAA < 0)
+        if (notaRAA < 0) {
             return (notaProjeto + getNAP()) / 2.0;
-        
+        }
+        if ((notaProjeto + getNAP() + notaRAA) / 3.0 >= 6.0) {
+            return 6.0;
+        }
         return (notaProjeto + getNAP() + notaRAA) / 3.0;
+
     }
 
     void setNotaRAA(double nota) {
@@ -79,5 +84,5 @@ public class Aluno {
     public double getNotaRAA() {
         return notaRAA;
     }
-    
+
 }
