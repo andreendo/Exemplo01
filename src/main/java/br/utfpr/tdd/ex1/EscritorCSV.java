@@ -18,7 +18,7 @@ import org.apache.commons.csv.CSVPrinter;
  */
 class EscritorCSV {
     CSVPrinter csvPrinter;
-    private final static Logger LOGGER = Logger.getLogger(EscritorCSV.class.getName());
+    private static final Logger LOGGER = Logger.getLogger(EscritorCSV.class.getName());
     
     void escrever(String ra, String nome, double notaFinal, String situacao) {
         try {
@@ -41,7 +41,8 @@ class EscritorCSV {
 
             csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
                 .withHeader("RA", "Nome", "NF", "Situacao"));
-            csvPrinter.flush();            
+            csvPrinter.flush();  
+            writer.close();
         }
         catch(Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
