@@ -78,5 +78,7 @@ public class AlunoTest {
         aluno.setNotaRAA(10.0);
         
         assertEquals(6.6666666666666666670, aluno.getNF(), 0.01);
+
+       // assertEquals(6.0, aluno.getNF(), 0.01);
     }    
 }
