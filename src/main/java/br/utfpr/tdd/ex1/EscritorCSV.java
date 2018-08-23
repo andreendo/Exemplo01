@@ -18,17 +18,17 @@ import org.apache.commons.csv.CSVPrinter;
  */
 class EscritorCSV {
     CSVPrinter csvPrinter;
-    private final static Logger LOGGER = Logger.getLogger(EscritorCSV.class.getName());
-    
+    private static final Logger LOGGER = Logger.getLogger(EscritorCSV.class.getName());
+
     void escrever(String ra, String nome, double notaFinal, String situacao) {
         try {
             Locale locale  = new Locale("en", "UK");
             DecimalFormat df = (DecimalFormat)
-                                NumberFormat.getNumberInstance(locale);
+                    NumberFormat.getNumberInstance(locale);
             df.applyPattern(".#");
             df.setRoundingMode(RoundingMode.DOWN);
             csvPrinter.printRecord(ra, nome, df.format(notaFinal), situacao);
-            csvPrinter.flush();            
+            csvPrinter.flush();
         }
         catch(Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
@@ -40,12 +40,13 @@ class EscritorCSV {
             BufferedWriter writer = Files.newBufferedWriter(Paths.get(filePath));
 
             csvPrinter = new CSVPrinter(writer, CSVFormat.DEFAULT
-                .withHeader("RA", "Nome", "NF", "Situacao"));
-            csvPrinter.flush();            
-        }
-        catch(Exception e) {
+                    .withHeader("RA", "Nome", "NF", "Situacao"));
+            csvPrinter.flush();
+
+            writer.close();
+        } catch(Exception e) {
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
         }
     }
-    
+
 }
