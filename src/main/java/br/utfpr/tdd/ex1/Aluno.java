@@ -45,11 +45,12 @@ public class Aluno {
         if(notaRAA < 0)
             return (notaProjeto + getNAP()) / 2.0;
         
-        double tempNota = (notaProjeto + getNAP() + notaRAA) / 3.0;
+        return (notaProjeto + getNAP() + notaRAA) / 3.0;
+        /*double tempNota = (notaProjeto + getNAP() + notaRAA) / 3.0;
         if(tempNota > 6)
             return 6.0;
         else
-            return tempNota;
+            return tempNota;*/
     }
 
     void setNotaRAA(double nota) {
