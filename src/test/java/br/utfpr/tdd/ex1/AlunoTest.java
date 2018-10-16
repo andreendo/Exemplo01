@@ -69,7 +69,7 @@ public class AlunoTest {
         assertEquals(5.2, aluno.getNF(), 0.01);
     }
     
-    /*@Test
+    @Test
     public void testNotaFinalComRAANoMaximoSeis() {
         Aluno aluno = new Aluno("RA", "Joao Da Silva");
         
@@ -78,5 +78,5 @@ public class AlunoTest {
         aluno.setNotaRAA(10.0);
         
         assertEquals(6.0, aluno.getNF(), 0.01);
-    } */   
+    }    
 }
